@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import "SVProgressHUD.h"
+#import "KBProgressHUD.h"
 
 @interface ViewController()
 
@@ -72,12 +73,12 @@
 #pragma mark - Show Methods Sample
 
 - (void)show {
-    [SVProgressHUD show];
+    [KBProgressHUD show];
     self.activityCount++;
 }
 
 - (void)showWithStatus {
-	[SVProgressHUD showWithStatus:@"Doing Stuff"];
+	[KBProgressHUD showWithStatus:@"Doing Stuff"];
     self.activityCount++;
 }
 
@@ -85,14 +86,14 @@ static float progress = 0.0f;
 
 - (IBAction)showWithProgress:(id)sender {
     progress = 0.0f;
-    [SVProgressHUD showProgress:0 status:@"Loading"];
+    [KBProgressHUD showProgress:0 status:@"Loading"];
     [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.1f];
     self.activityCount++;
 }
 
 - (void)increaseProgress {
     progress += 0.05f;
-    [SVProgressHUD showProgress:progress status:@"Loading"];
+    [KBProgressHUD showProgress:progress status:@"Loading"];
 
     if(progress < 1.0f){
         [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.1f];
@@ -109,7 +110,7 @@ static float progress = 0.0f;
 #pragma mark - Dismiss Methods Sample
 
 - (void)dismiss {
-	[SVProgressHUD dismiss];
+	[KBProgressHUD dismiss];
     self.activityCount = 0;
 }
 
